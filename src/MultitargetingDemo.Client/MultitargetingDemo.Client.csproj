@@ -10,24 +10,22 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
     <OutputPath>..\..\Bin\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
     <OutputPath>..\..\Bin\Release</OutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\MultitargetingDemo.Service.Contract\MultitargetingDemo.Service.Contract.csproj" />
   </ItemGroup>
-  
   <ItemGroup>
     <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
   </ItemGroup>

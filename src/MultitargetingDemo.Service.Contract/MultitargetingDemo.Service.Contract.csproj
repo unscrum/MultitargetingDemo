@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <RootNamespace>MultitargetingDemo.Service.Contract</RootNamespace>
@@ -8,23 +8,27 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
     <OutputPath>..\..\Bin\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
     <OutputPath>..\..\Bin\Release</OutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Debug|net47'">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Release|net47'">
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' != 'net47' ">
-    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3"/>
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
   </ItemGroup>
-  
   <ItemGroup Condition=" '$(TargetFramework)' == 'net47' ">
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Data.DataSetExtensions" />
