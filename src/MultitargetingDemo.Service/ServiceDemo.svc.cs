@@ -9,19 +9,24 @@ namespace MultitargetingDemo.Service
     {
         public string GetData(int value)
         {
-            using (var ctx =
-                DemoDbContext.BySqlServerConnectionString(ConfigurationManager.ConnectionStrings["DemoDb"]
-                    .ConnectionString))
+            using (var ctx = DemoDbContext.BySqlServerConnectionString(ConfigurationManager.ConnectionStrings["DemoDb"].ConnectionString))
             {
-                var note = ctx.Notes.FirstOrDefault();
-                return $"You entered: {value} and note is {note?.Text}";
+                try
+                {
+                    var note = ctx.Notes.FirstOrDefault();
+                    return $"You entered: {value} and note is '{note?.Text}'";
+                }
+                catch (Exception ex)
+                {
+                    return ex.ToString();
+                }
             }
         }
 
         public Contract.CompositeTypeResponse GetDataUsingDataContract(Contract.CompositeTypeRequest composite)
         {
             if (composite == null)
-                throw new ArgumentNullException("composite");
+                throw new ArgumentNullException(nameof(composite));
             
 
             return new Contract.CompositeTypeResponse
