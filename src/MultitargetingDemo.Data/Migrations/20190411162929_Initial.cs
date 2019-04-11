@@ -22,7 +22,7 @@ namespace MultitargetingDemo.Data.Migrations
                     table.PrimaryKey("PK_Note", x => x.Id);
                 });
 
-            migrationBuilder.Sql("Insert into Note (Text,Data) values ('Hello world', '2019-4-11')");
+            migrationBuilder.Sql("Insert into Note (Text,Date) values ('Hello world', '2019-4-11')");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

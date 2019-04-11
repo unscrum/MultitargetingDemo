@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Configuration;
+using System.Linq;
+using MultitargetingDemo.Data;
 
 namespace MultitargetingDemo.Service
 {
@@ -6,7 +9,13 @@ namespace MultitargetingDemo.Service
     {
         public string GetData(int value)
         {
-            return $"You entered: {value}";
+            using (var ctx =
+                DemoDbContext.BySqlServerConnectionString(ConfigurationManager.ConnectionStrings["DemoDb"]
+                    .ConnectionString))
+            {
+                var note = ctx.Notes.FirstOrDefault();
+                return $"You entered: {value} and note is {note?.Text}";
+            }
         }
 
         public Contract.CompositeTypeResponse GetDataUsingDataContract(Contract.CompositeTypeRequest composite)
