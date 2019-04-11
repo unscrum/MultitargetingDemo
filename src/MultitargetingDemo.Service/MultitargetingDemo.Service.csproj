@@ -84,6 +84,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MultitargetingDemo.Data\MultitargetingDemo.Data.csproj">
+      <Project>{85adb3ad-ed13-4f20-b2e8-f85f9c732f4d}</Project>
+      <Name>MultitargetingDemo.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MultitargetingDemo.Service.Contract\MultitargetingDemo.Service.Contract.csproj">
       <Project>{ef089477-73d8-4f40-a5ce-171877a48f9e}</Project>
       <Name>MultitargetingDemo.Service.Contract</Name>
