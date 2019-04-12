@@ -1,13 +1,13 @@
 # Multi-targeting Demo
-The demo uses 4 tags to show different states of an application.  For this example the scenario is that an existing WCF service and client writting in .NETFramework version 4.7 exist, and we want to move the client to netcore 2.2 to run on linux.
+The demo uses 4 @tags to show different states of an application.  For this example the scenario is that an existing WCF service and client writting in .NETFramework version 4.7 exist, and we want to move the client to netcore 2.2 to run on linux.
 
 The WCF Scenario is something I think might be common.  I want to show that WCF contracts can be converted to be used by both .NETFramework and netcore, and that applications can be converted to netcore from .NETFramework in some cases.
 
-Later I'll show going the other direction and having a WCF service consume a .NET Core EF 2.2 DLL
+Later I'll show going the other direction and having a WCF service consume a .NET Core EF 2.2 DLL using a 5th @tag
 
 Below each section refers to the state of a git @tag and what the state of the application is in.
 
-For each demo you can compile and launch the web service and then launch the console app to see it make a call.
+For each demo you can compile and launch the web service and then launch the console app to see it make 2 calls to the WCF service.
 
 ## Demo 1
 The initial WCF Service state. All three projects use the old style CSPROJ format and are written to compile to .NET 4.7
